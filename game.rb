@@ -11,6 +11,11 @@ class Game
     @name = name
     self.game_control
   end
+
+  def game_control
+    current_player = "Player 1"
+    puts "#{current_player}: What does 2 plus 3 equal?"
+  end
 end
 
 
