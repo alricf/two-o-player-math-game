@@ -13,8 +13,12 @@ class Game
   end
 
   def game_control
-    current_player = "Player 1"
-    puts "#{current_player}: What does 2 plus 3 equal?"
+    player1 = Player.new("Player 1", "3/3", false)
+    player2 = Player.new("Player 2", "3/3", false)
+    current_player = player1.name
+    problem = Problem.new("1")
+    question = problem.question
+    puts "#{current_player}: #{question}"
   end
 end
 
