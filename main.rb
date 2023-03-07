@@ -1,5 +1,5 @@
-require './game.rb'
-require './player.rb'
+require './game'
+require './player'
 require './problem'
 
-current = Game.new('1')
+Game.new('1')

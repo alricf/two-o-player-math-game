@@ -1,22 +1,10 @@
 class Player
 
-  attr_reader :name
-  
-  def initialize(name, lives, winner)
+  attr_reader :name, :lives
+  attr_writer :lives
+
+  def initialize(name, lives)
     @name = name
     @lives = lives
-    @winner = winner
-  end
-
-  # def name
-  #   @name
-  # end
-
-  def changePlayer
-    if @current_player == "Player 1"
-      return @current_player = "Player 2"
-    else
-      return @current_player = "Player 1"
-    end
   end
 end
