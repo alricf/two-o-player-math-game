@@ -7,4 +7,12 @@ class Player
     @name = name
     @lives = lives
   end
+
+  def alive?
+    self.lives != 0
+  end
+
+  def dead?
+    self.lives == 0
+  end
 end

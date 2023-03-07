@@ -12,4 +12,8 @@ class Problem
   def answer
     answer = @random_num1 + @random_num2
   end
+
+  def print
+    self.question
+  end
 end

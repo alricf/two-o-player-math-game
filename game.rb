@@ -1,11 +1,3 @@
-=begin 
-psuedo-code for game logic
-1) output: question statement requires problem class and current player from player class.
-2) input: player answers with number and number is compared with problem answer from problem class to see if answer is right or wrong.
-3a) output: if player answers wrong and has life left then update current player life stats using player class and output each players current lives, then change current player and repeat loop 1-3a
-3b) output: If player answers wrong and  no lives left for 1 player then output winning player with lives left and end game.
-=end
-
 class Game
   def initialize(name)
     @name = name
@@ -18,12 +10,11 @@ class Game
     current_player = player1
 
     problem_number = 0
-    while player1.lives != 0 && player2.lives != 0
+    while player1.alive? && player2.alive?
       problem_number += 1
       problem = Problem.new("#{problem_number}")
-      question = problem.question
 
-      puts "#{current_player.name}: #{question}"
+      puts "#{current_player.name}: #{problem.print}"
       print "> "
       user_answer = gets.chomp.to_i
 
@@ -35,12 +26,12 @@ class Game
         elsif current_player == player2
           player2.lives -= 1
         end
-        if player1.lives != 0 && player2.lives != 0
+        if player1.alive? && player2.alive?
           puts "#{current_player.name}: Seriously? No!"
         end
       end
 
-      if player1.lives != 0 && player2.lives != 0
+      if player1.alive? && player2.alive?
         puts "P1: #{player1.lives}/3 vs P2: #{player2.lives}/3"
         puts "----- NEW TURN -----"
 
@@ -52,12 +43,12 @@ class Game
       end
     end
 
-    if player1.lives == 0
+    if player1.dead?
       puts "P1: #{player1.lives}/3 vs P2: #{player2.lives}/3"
       puts "Player 2 wins with a score of #{player2.lives}/3"
     end
 
-    if player2.lives == 0
+    if player2.dead?
       puts "P1: #{player1.lives}/3 vs P2: #{player2.lives}/3"
       puts "Player 1 wins with a score of #{player1.lives}/3"
     end
