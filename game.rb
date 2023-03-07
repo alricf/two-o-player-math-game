@@ -19,6 +19,8 @@ class Game
     problem = Problem.new("1")
     question = problem.question
     puts "#{current_player}: #{question}"
+    print "> "
+    user_answer = gets.chomp
   end
 end
 
