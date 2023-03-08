@@ -19,7 +19,7 @@ class Game
       user_answer = gets.chomp.to_i
 
       if user_answer == problem.answer
-        puts "#{current_player.name}: YES! You are correct"
+        puts "#{current_player.name}: YES! You are correct."
       else
         if current_player == player1
           player1.lives -= 1
